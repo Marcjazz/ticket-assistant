@@ -1,7 +1,7 @@
 # Stage 1: Build the Rust binary
 FROM rust:latest AS builder
 
-WORKDIR /app
+WORKDIR /ticket-assistant
 
 COPY . .
 
@@ -12,6 +12,6 @@ FROM debian:buster-slim
 
 WORKDIR /app
 
-COPY --from=builder /app/target/release/ticket-assistant .
+COPY --from=builder /ticket-assistant/target/release/ticket-assistant .
 
 ENTRYPOINT ["/ticket-assistant"]
