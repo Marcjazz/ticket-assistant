@@ -8,9 +8,9 @@ COPY . .
 RUN cargo build --release
 
 # Stage 2: Create the runtime image
-FROM debian:buster-slim
+FROM gcr.io/distroless/cc AS runtime
 
-WORKDIR /app
+WORKDIR /ticket-assistant
 
 COPY --from=builder /ticket-assistant/target/release/ticket-assistant /ticket-assistant
 
