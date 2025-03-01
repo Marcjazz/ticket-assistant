@@ -15,7 +15,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args = env::args().collect::<Vec<String>>();
 
     println!("Agrs: {:?}", args);
-    
+
     if args.len() != 4 {
         panic!("Missmatch required params, exactly two params are required: enable_fib, max_threshhold and pr_number")
     }
@@ -60,7 +60,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         let comment = if fibonaccies.len() == 0 {
             format!("Numberless PR: Nothing to Compute...")
         } else {
-            format!("Fobonaccies: {:?}", fibonaccies)
+            let mut comment = format!("## Fobonaccies");
+            fibonaccies
+                .iter()
+                .for_each(|(val, fibo)| comment.push_str(&format!("\t - **Fn({val})**: {fibo}")));
+
+            comment
         };
 
         println!("{comment}");
