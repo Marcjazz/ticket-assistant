@@ -20,6 +20,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         panic!("Missmatch required params, exactly two params are required: enable_fib, max_threshhold and pr_number")
     }
 
+    if args.len() != 4 {
+        panic!("Missmatch required params, exactly two params are required: enable_fib, max_threshhold and pr_number")
+    }
+
     let gh_token = env::var("GITHUB_TOKEN").expect("Could not read GITHUB_TOKEN from env.");
     let gh_repo =
         env::var("GITHUB_REPOSITORY").expect("Could not read GITHUB_REPOSITORY form env.");
@@ -60,7 +64,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         let comment = if fibonaccies.len() == 0 {
             format!("Numberless PR: Nothing to Compute...")
         } else {
-            format!("Fobonaccies: {:?}", fibonaccies)
+            let mut comment = format!("## Fobonaccies\n");
+            fibonaccies
+                .iter()
+                .for_each(|(val, fibo)| comment.push_str(&format!("> **Fn({val})**: {fibo}\n")));
+
+            comment
         };
 
         println!("{comment}");

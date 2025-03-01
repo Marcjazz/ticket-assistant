@@ -17,7 +17,8 @@ For now, it acts as a Fibonacci bot that extracts numbers from a pull request (P
       uses: @marcjazz/ticket-assistant@v1
       with: 
         enable_fib: true
-        max_threshold: 100
+        max_threshold: 105
+        pr_number: ${{ github.event.pull_request.number }}
 ```
 **Fixes:**  
 - "pontential" → "potential"  
@@ -34,10 +35,10 @@ git clone https://github.com/Marcjazz/ticket-assistant.git
 #### Build and Run Using Docker  
 Run the following command:  
 - `true` enables Fibonacci computation.  
-- `100` sets the maximum threshold.  
+- `105` sets the maximum threshold.  
 
 ```shell
-make start true 100
+make start true 105
 ```
 **Fixes:**  
 - Clarified explanation of arguments.  

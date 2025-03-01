@@ -1,12 +1,15 @@
 pub fn extract_numbers_from_text(text: String, max_threshhold: u32) -> Vec<u32> {
-    let r = text.split(" ");
-
-    let mut nums = Vec::new();
-    for w in r {
-        let num = w.parse::<u32>();
-        if let Ok(num) = num {
-            if num <= max_threshhold {
-                nums.push(num);
+    let mut nums = vec![];
+    let mut num_string = String::new();
+    for char in text.chars() {
+        if char.is_digit(10) {
+            num_string.push(char);
+        } else {
+            if let Ok(num) = num_string.parse::<u32>() {
+                if num <= max_threshhold && !nums.contains(&num) {
+                    nums.push(num);
+                    num_string = String::new()
+                }
             }
         }
     }
