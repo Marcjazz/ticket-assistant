@@ -12,6 +12,6 @@ FROM debian:buster-slim
 
 WORKDIR /app
 
-COPY --from=builder /ticket-assistant/target/release/ticket-assistant .
+COPY --from=builder /ticket-assistant/target/release/ticket-assistant /ticket-assistant
 
-ENTRYPOINT ["/home/runner/work/ticket-assistant/ticket-assistant"]
+ENTRYPOINT ["/ticket-assistant"]
