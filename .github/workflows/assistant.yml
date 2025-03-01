@@ -18,6 +18,8 @@ jobs:
 
       - name: Run Rust Action
         uses: ./
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           enable_fib: true 
           max_threshhold: 105
