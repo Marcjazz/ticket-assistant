@@ -63,7 +63,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             let mut comment = format!("## Fobonaccies\n");
             fibonaccies
                 .iter()
-                .for_each(|(val, fibo)| comment.push_str(&format!("- **Fn({val})**: {fibo}\n")));
+                .for_each(|(val, fibo)| comment.push_str(&format!("> **Fn({val})**: {fibo}\n")));
 
             comment
         };
