@@ -60,10 +60,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         let comment = if fibonaccies.len() == 0 {
             format!("Numberless PR: Nothing to Compute...")
         } else {
-            let mut comment = format!("## Fobonaccies");
+            let mut comment = format!("## Fobonaccies\n");
             fibonaccies
                 .iter()
-                .for_each(|(val, fibo)| comment.push_str(&format!("\t - **Fn({val})**: {fibo}")));
+                .for_each(|(val, fibo)| comment.push_str(&format!("\t - **Fn({val})**: {fibo}\n")));
 
             comment
         };
