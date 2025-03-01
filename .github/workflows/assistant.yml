@@ -18,5 +18,8 @@ jobs:
 
       - name: Run Rust Action
         uses: ./
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
         with:
-          pr_number: ${{ github.event.pull_request.number }}
+          enable_fib: true 
+          max_threshhold: 105
