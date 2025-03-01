@@ -14,11 +14,11 @@ use utils::{extract_numbers_from_text, parse_bool};
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args = env::args().collect::<Vec<String>>();
 
+    println!("Agrs: {:?}", args);
+    
     if args.len() != 4 {
         panic!("Missmatch required params, exactly two params are required: enable_fib, max_threshhold and pr_number")
     }
-
-    println!("Agrs: {:?}", args);
 
     let gh_token = env::var("GITHUB_TOKEN").expect("Could not read GITHUB_TOKEN from env.");
     let gh_repo =
