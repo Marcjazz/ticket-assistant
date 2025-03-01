@@ -1,0 +1,23 @@
+name: "Rust Ticket Assistant"
+description: "Detects potential duplicate issues, relationships between tickets, and related PRs, then comments on the issue."
+author: "Marco Kuidja "
+inputs:
+  enable_fib:
+    description: "Action does nothing"
+    required: true
+  max_threshhold: 
+    description: "The maximum number action should compute"
+    required: true
+  # repo:
+  #   description: "The repository in the format owner/repo."
+  #   required: true
+  # github_token:
+  #   description: "GitHub token for API access."
+  #   required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.pr_number }}
+    # - ${{ inputs.repo }}
+    # - ${{ inputs.github_token }}
