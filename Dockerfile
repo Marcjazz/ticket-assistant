@@ -14,4 +14,4 @@ WORKDIR /app
 
 COPY --from=builder /app/target/release/ticket-assistant ./ticket-assistant
 
-CMD [".", "./ticket-assistant"]
+CMD ["./ticket-assistant"]
