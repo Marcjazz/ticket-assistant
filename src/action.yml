@@ -8,16 +8,14 @@ inputs:
   max_threshhold: 
     description: "The maximum number action should compute"
     required: true
-  # repo:
-  #   description: "The repository in the format owner/repo."
-  #   required: true
-  # github_token:
-  #   description: "GitHub token for API access."
-  #   required: true
+  pr_number:
+    description: "The pull request number."
+    required: true
+
 runs:
   using: "docker"
   image: "Dockerfile"
   args:
+    - ${{ inputs.enable_fib }}
+    - ${{ inputs.max_threshhold }}
     - ${{ inputs.pr_number }}
-    # - ${{ inputs.repo }}
-    # - ${{ inputs.github_token }}
