@@ -1,7 +1,3 @@
-Here’s a reviewed version of your README with grammar corrections, better clarity, and consistency improvements:  
-
----
-
 # Ticket Assistant  
 A bot that searches a repository’s issues for potential duplicates.  
 
