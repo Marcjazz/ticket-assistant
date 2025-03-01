@@ -5,7 +5,7 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  insights:
+  fibbot:
     runs-on: ubuntu-latest
     permissions: 
       issues: write
@@ -18,5 +18,9 @@ jobs:
 
       - name: Run Rust Action
         uses: ./
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          enable_fib: true 
+          max_threshhold: 105
           pr_number: ${{ github.event.pull_request.number }}
