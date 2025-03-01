@@ -14,4 +14,4 @@ WORKDIR /app
 
 COPY --from=builder /app/target/release/ticket-assistant .
 
-ENTRYPOINT ["./ticket-assistant"]
+ENTRYPOINT ["/ticket-assistant"]
