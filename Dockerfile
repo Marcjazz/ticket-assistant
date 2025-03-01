@@ -14,4 +14,4 @@ WORKDIR /app
 
 COPY --from=builder /ticket-assistant/target/release/ticket-assistant .
 
-ENTRYPOINT ["/ticket-assistant"]
+ENTRYPOINT ["/home/runner/work/ticket-assistant/ticket-assistant"]
